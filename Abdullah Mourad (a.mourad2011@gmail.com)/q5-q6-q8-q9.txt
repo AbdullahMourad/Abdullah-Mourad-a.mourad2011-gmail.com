@@ -1,0 +1,117 @@
+Q-5
+using bitwise operations If we subtract 1 from a power of 2 what we get is 1s till a last unset bit and if we apply Bitwise AND operator we should get only 0.
+This algorithm has a complexity of O(1).
+
+
+#include <iostream>
+bool is_power_of_2(int x)
+{
+	// Check if the number has only one set bit
+	if ((x & (x - 1)) != 0)
+		return false;
+	return true;
+}
+int main(int argc, char *argv[])
+{
+	int n;
+	std::cout << "Enter a number:" << std::endl;
+	std::cin >> n;
+	// Print the result
+	std::cout << ((is_power_of_2(n)) ? "YES" : "NO") << std::endl;
+	return 0;
+}
+
+
+
+Q-6 
+It's not courrect,  the only shared memory is copies of stack and heap are made for the newly created process.
+actually they are pointed to or mapped to different physical address otherwise when parent assigned value of 200 at memory address 0x1434010 the same 200 we should have got in child but we got 0.
+
+
+
+Q-8
+Virtual Addresses is not the same size as Physical Addresses, since the Virtual Addresses is divided into two structure one for use by the process and the other reserved for use by the system.
+ Physical addresses refer to hardware addresses of physical memory
+
+Q-9
+Function Overloading:is a feature provides multiple definitions of the function by modifying the signature
+Example:
+
+#include <iostream> 
+using namespace std; 
+  
+// overloaded functions 
+void test(int); 
+void test(float); 
+void test(int, float); 
+  
+int main() 
+{ 
+    int a = 5; 
+    float b = 5.5; 
+  
+    // Overloaded functions 
+    // with different type and 
+    // number of parameters 
+    test(a); 
+    test(b); 
+    test(a, b); 
+  
+    return 0; 
+} 
+void test(int var) 
+{ 
+    cout << "Integer number: " << var << endl; 
+}  
+void test(float var) 
+{ 
+    cout << "Float number: "<< var << endl; 
+} 
+void test(int var1, float var2) 
+{ 
+    cout << "Integer number: " << var1; 
+    cout << " and float number:" << var2; 
+} 
+
+
+
+
+Function overriding:redefinition of base class function in its derived class with same signature
+Example:
+#include<iostream> 
+using namespace std; 
+class BaseClass 
+{ 
+public: 
+	virtual void Display() 
+	{ 
+		cout << "\nThis is Display() method"
+				" of BaseClass"; 
+	} 
+	void Show() 
+	{ 
+		cout << "\nThis is Show() method "
+			"of BaseClass"; 
+	} 
+}; 
+class DerivedClass : public BaseClass 
+{ 
+public: 
+	// Overriding method - new working of 
+	// base class's display method 
+	void Display() 
+	{ 
+		cout << "\nThis is Display() method"
+			" of DerivedClass"; 
+	} 
+}; 
+int main() 
+{ 
+	DerivedClass dr; 
+	BaseClass &bs = dr; 
+	bs.Display(); 
+	dr.Show(); 
+} 
+
+
+

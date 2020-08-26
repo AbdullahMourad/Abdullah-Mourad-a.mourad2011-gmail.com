@@ -1,0 +1,28 @@
+q-4
+
+
+
+
+
+class FileSystem
+    {
+        public bool isFolder(string path)
+        {
+            return Directory.Exists(path);
+        }
+
+        public bool hasFile(string path, string file)
+        {
+            return File.Exists(path + '/' + file);
+        }
+
+        public string getName(string path)
+        {
+            return File.Exists(path) ? Path.GetFileName(path) : "";
+        }
+
+        public void createFolder(string root, string name)
+        {
+            Directory.CreateDirectory(root + '/' + name);
+        }
+    }
